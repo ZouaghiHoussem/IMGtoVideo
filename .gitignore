@@ -1,2 +1,5 @@
+*.avi
+*.jpg
+*.png
 in
 __pycache__

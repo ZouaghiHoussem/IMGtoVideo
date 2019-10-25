@@ -56,6 +56,9 @@ def get_name_extension(path):
 
 
 def find_paths(path, is_sorted=False,debug_mode=False):
+    if (path.find('*') == -1 and path.find('?') == -1 and path.find('[') == -1):
+        path += '*'
+
     path_list = glob.glob(os.path.expanduser(path))
     
     if len(path_list) == 0:

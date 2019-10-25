@@ -10,5 +10,7 @@ python main.py -i [source_folder] -fps [frame_rate] -o [output_file]
 *example*
 
 ```
-python main.py -i ~/Document/images/*.jpg -fps 24 -o ./video.avi
+python main.py -i '~/Document/images/*.jpg' -fps 24 -o ./video.avi
 ```
+## NB
+PLease do not forget the cotes ' in case  you want to use special keys

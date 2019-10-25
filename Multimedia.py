@@ -2,6 +2,8 @@ import cv2
 from tqdm import tqdm
 import pathManager
 
+
+
 def video_from_frames(frames_path,output_path,fps):
     frame_array = []
     for i in tqdm(range(len(frames_path))):

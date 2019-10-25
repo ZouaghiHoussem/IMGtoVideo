@@ -24,7 +24,8 @@ def get_name(path,debug_mode=False):
     return path[start_index+1:end_index]
 
 
-def get_extension(path,debug_mode=False):
+
+def async (path,debug_mode=False):
     end_index = path.rfind('.')
     if end_index < 0 or end_index==0:
         Log("Error: {0} is not a folder".format(path),debug_mode=debug_mode)
@@ -37,12 +38,31 @@ def get_folder(path):
     return path[:last_slash+1]
 
 
+'''
+    FN name : get_name_extension
+    Summary :
+        find the name and extension of the file
+    inputs  :
+        path: string = File path:
+    return  :
+        file_name, file_extension
+
+    '''
 def get_name_extension(path):
     start_index = path.rfind('/')
     end_index = path.rfind('_')
     if end_index < 0:
         end_index = path.rfind('.')
     return path[start_index+1:end_index], path[end_index+1:]
+
+
+def is_image(path):
+    img_extension = ["PNG", "JPG","JPEG"]
+    _,extension = get_name_extension(path)
+    if(extension.upper() in img_extension):
+        return True
+    else:
+        return  False
 
 '''
     FN name : find_paths
@@ -68,5 +88,6 @@ def find_paths(path, is_sorted=False,debug_mode=False):
     if is_sorted:
         path_list.sort(key=lambda x: get_name(x))
     return path_list
+
 
 

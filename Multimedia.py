@@ -7,6 +7,7 @@ import pathManager
 def video_from_frames(frames_path,output_path,fps):
     frame_array = []
     for i in tqdm(range(len(frames_path))):
+        #pathManager.get_name(frames_path[i],True)
         img = cv2.imread(frames_path[i])
         height, width, layers = img.shape
         size = (width,height)

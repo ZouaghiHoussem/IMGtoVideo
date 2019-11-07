@@ -24,14 +24,14 @@ def get_name(path,debug_mode=False):
     return path[start_index+1:end_index]
 
 
-
-def async (path,debug_mode=False):
+'''
+def async(path,debug_mode=False):
     end_index = path.rfind('.')
     if end_index < 0 or end_index==0:
         Log("Error: {0} is not a folder".format(path),debug_mode=debug_mode)
         return False
     return path[end_index+1:]
-
+'''
 
 def get_folder(path):
     last_slash=path.rfind('/')
@@ -55,6 +55,21 @@ def get_name_extension(path):
         end_index = path.rfind('.')
     return path[start_index+1:end_index], path[end_index+1:]
 
+def get_file_index(path,separator_1='-',separator_2='_',debug_mode=False):
+
+    start_index = path.rfind(separator_1)
+    if(start_index==-1):
+        start_index = path.rfind('/')
+    end_index = path.rfind(separator_2)
+    
+    if(end_index==-1):
+        end_index = path.rfind('.')
+    if(end_index==-1):
+        end_index=len(path)
+    
+    Log("Name limits are [{0},{1}]".format(start_index,end_index), debug_mode=debug_mode)
+    
+    return int(path[start_index+1:end_index])
 
 def is_image(path):
     img_extension = ["PNG", "JPG","JPEG"]
@@ -86,7 +101,7 @@ def find_paths(path, is_sorted=False,debug_mode=False):
         return False
     
     if is_sorted:
-        path_list.sort(key=lambda x: get_name(x))
+        path_list.sort(key=lambda x: get_file_index(x))
     return path_list
 
 

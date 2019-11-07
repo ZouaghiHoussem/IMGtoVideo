@@ -13,7 +13,7 @@ def video_from_frames(frames_path,output_path,fps):
         #inserting the frames into an image array
         frame_array.append(img)
 
-    out=cv2.VideoWriter(output_path,cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
+    out=cv2.VideoWriter(output_path,cv2.VideoWriter_fourcc(*'XVID'), fps, size)
 
     print ("\n info  :  frames under {0} was loaded successifly  \n".format(output_path))
 

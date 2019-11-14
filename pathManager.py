@@ -20,8 +20,9 @@ def is_exist(path,debug_mode=False):
 def get_name(path,debug_mode=False):
     start_index = path.rfind('/')
     end_index = path.rfind('.')
-    Log("Name limits are [{0},{1}]".format(start_index,end_index), debug_mode=debug_mode)
-    return path[start_index+1:end_index]
+    file_name=path[start_index+1:end_index]
+    Log("Name is '{0}' and was found between [{1},{2}]".format(file_name,start_index,end_index), debug_mode=debug_mode)
+    return file_name
 
 
 '''

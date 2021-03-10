@@ -1,6 +1,5 @@
-import pathManager
+from pathManager import  load_img_paths
 import Multimedia
-from glob import glob
 import os
 import argparse
 
@@ -23,8 +22,7 @@ print ("\n \n \n---------\n \n \n")
 input_folder= os.path.expanduser(args['inputDir'])
 output_file = os.path.expanduser(args['outputDir'])
 fps = float(args['frameRate'])
-files = []
-files.extend(sorted(glob(input_folder)))
+files = load_img_paths(input_folder)
 
 if len(files)!=0:
     Multimedia.video_from_frames(files,output_file,fps)

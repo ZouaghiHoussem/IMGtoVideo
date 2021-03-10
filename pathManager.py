@@ -1,5 +1,15 @@
 import os
 import glob
+from glob import glob
+
+from natsort import natsorted
+def load_img_paths(path):
+    types = ('*.jpg', '*.png')
+    paths = []
+    for files in types:
+        paths.extend(sorted(glob(os.path.join(path, files))))
+    paths = natsorted(paths)
+    return paths
 
 def Log(msg,debug_mode=False):
     if debug_mode:
